@@ -1,16 +1,19 @@
-while (true){
+import java.util.Scanner;
+
+public class Main {
+
+    public static Estoque estoque = new Estoque();
+
+    public static void main(String[] args) {
+        int opcao;
+
+        while (true) {
             Scanner scanner = new Scanner(System.in);
+
+            mostraMenu();
             opcao = scanner.nextInt();
 
-            System.out.println("CONTROLE DE ESTOQUE: \n");
-            System.out.print("1 - Cadastrar produtos");
-            System.out.print("2 - Listar produtos");
-            System.out.print("3 - Entarda de produtos");
-            System.out.print("4 - Saída de produtos");
-            System.out.print("5 - Buscar produtos");
-            System.out.print("0 - Sair");
-
-            switch (opcao){
+            switch (opcao) {
                 case 1:
                     break;
                 case 2:
@@ -18,7 +21,7 @@ while (true){
                     break;
                 case 3:
                     int id = getId(scanner);
-                    int qt =  sacnner.nextInt();
+                    int qt = scanner.nextInt();
                     estoque.entrada(id, qt);
                     break;
                 case 4:
@@ -27,20 +30,38 @@ while (true){
                     estoque.saida(idSaida, qtSaida);
                     break;
                 case 5:
-                    System.out.println("Informe o ID do produto: ");
-                    int idBusca = scanne.nextInt();
+                    System.out.println("Informe o ID do produto");
+                    int idBusca = scanner.nextInt();
                     estoque.buscaProduto(idBusca);
                     break;
-
                 case 0:
                     return;
                 default:
-                    System.out.println("Informe")
-
-
+                    System.out.println("Opção inválida");
+                    break;
             }
-
-
-
         }
     }
+
+    private static void mostraMenu() {
+        System.out.println("===================");
+        System.out.println("CONTROLE DE ESTOQUE");
+        System.out.println("===================");
+
+        System.out.println();
+
+        System.out.println("1 - Cadastrar produto");
+        System.out.println("2 - Listar produtos");
+        System.out.println("3 - Entrada de produtos");
+        System.out.println("4 - Saída de produtos");
+        System.out.println("5 - Buscar produto");
+        System.out.println("0 - Sair");
+    }
+
+    private static int getId(Scanner scanner) {
+        System.out.println("Informe o ID do produto");
+        int id = scanner.nextInt();
+        System.out.println("Informe a quantidade");
+        return id;
+    }
+}
