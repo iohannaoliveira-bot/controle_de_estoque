@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Produto {
     private int id;
     private String nome;
@@ -13,16 +15,6 @@ public class Produto {
         this.preco = preco;
         this.quantidadeEstoque = quantidadeEstoque;
     }
-    public void cadastrar(){
-        System.out.println("Insira o ID do produto: ");
-        this.id = scanner.nextInt();
-        System.out.println("Insira o nome do produto: ");
-        this.nome = scanner.nextLine();
-        System.out.println("Insira o preço do produto: ");
-        this.preco = scanner.nextInt();
-        System.out.println("Insira a quantidade em estoque do produto: ");
-        this.quantidadeEstoque = scanner.nextInt();
-}
     public void adicionar(int quantidade){
         quantidadeEstoque += quantidade;
     }
